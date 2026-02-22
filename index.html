@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>أريد أن أعتذر منك 💕</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Tajawal', sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    /* ===== PAGES ===== */
+    .page {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
+      padding: 20px;
+    }
+    .page.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* ===== PAGE 1 - INTRO ===== */
+    #page1 {
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #ffecd2 100%);
+      background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUPEhIVFRUVFRUVFRUVFxcVFRUVFRUWFhUVFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDQwNGA8PEiseEx0rKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAKgBLAMBIgACEQEDEQH/xAAZAAEBAQEBAQAAAAAAAAAAAAABAAIDBQf/xAAwEAEBAQEAAAEJBAsAAAAAAAAAARECQQYHEjFDU4LS8BORo7IDBAUUFhcyM1FUgf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD4lUqASRBJIEsKBJEAUQCKBJQgKjgwEjiwBiKAYlUARAIFAEkAVIBAoAUATfEZa4Bmg0AiEBSQIpAlqIKJYcBFQgE0sAIxAsBIMorAZDSBlGjAAawAEaqDKIBJIAiATfLDfAM0GgEQQRBBJEEoiCKlWATgxqQAYUAWH6+tIM4cOLAZwkUGasawWAziI0Ay1RQAaABJAEkCSQJrhhvgGaDQCKQEFAkoYCakBgIxGQDEDIBIkawBKlhwFiw4gZWGwABjSAYy0KDIOCgKDgAI4ACSBJAC1ww1yA6SqBJEAYkCwhqAGpAZQaxKnAUKkasA8xaNUAqcmHQFGOlZlBnBY2yAxl0jPQMyKrR0ArLVgwGamrGQFBALAVQCSAOnEYb4oMVHoAiEBWIgDEgLWMxqATKDAa1KGAuStIJYoQMqZ1rQF5ZrdrNBlWqqUBYzWtFAaKkDNBooAGoAkAIIAN8Mt8AxUqgRBBJICRCCMUUA6dBAxuMjQdNClQGHRzSBSwWgqEAIpotBkWkUBaDRQFFVWgARKCSQCpVAm+GG+IDFSqBakgKBAxaCBSQGVqVmGA0WSBIlUBqr0hVoGVMnQWmUAFelVUAo0sgWaRQANQAUigtCQIFAmuaw3wDNBoBEEEQgKBAwsnQLUrMqBrSydAymMoGkNWgSABLOrQNCrIGoaPSA6NCBJAEggSSBJAC1ww3wDNBoBJICkgKSBJKAUkBOs6QaTJArQgKCAoIEtFQJIAkgBtFSBAiggQCSQJvhlrgGaEgSKAFIEigSSBakgTQQJJAUEBQQFakAVSBIIEkgSSB6vk5+wuv1vvridzicc+lbZer68kknre/PN/1/sfhdfMkAvm/69/8AhX5hfIDrc+3vj7K+HxfckC/gHr398PY9ePxK+QHW59vfXJ/Z6+/+r1JAf5f9e/8A8+yvh8Tpx5vOrN/eJ/39Hd/MkD//2Q==');
+      background-size: cover;
+      background-position: center;
+    }
+    #page1::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,154,158,0.75) 0%, rgba(254,207,239,0.7) 50%, rgba(255,236,210,0.75) 100%);
+    }
+
+    .page1-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      animation: floatUp 0.8s ease forwards;
+    }
+
+    .big-heart {
+      font-size: 80px;
+      animation: heartBeat 1.5s infinite;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    .page1-title {
+      font-size: clamp(26px, 7vw, 48px);
+      font-weight: 900;
+      color: #fff;
+      text-shadow: 0 2px 20px rgba(220,50,100,0.4);
+      margin-bottom: 8px;
+    }
+
+    .page1-sub {
+      font-size: clamp(14px, 4vw, 20px);
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+
+    .enter-btn {
+      background: linear-gradient(135deg, #ff6b9d, #ff4757);
+      color: white;
+      border: none;
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-size: 20px;
+      font-family: 'Tajawal', sans-serif;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 30px rgba(255,71,87,0.4);
+      transition: all 0.3s;
+    }
+    .enter-btn:hover, .enter-btn:active {
+      transform: scale(1.05);
+      box-shadow: 0 12px 40px rgba(255,71,87,0.6);
+    }
+
+    /* ===== PAGE 2 & 3 & 4 - QUESTION PAGES ===== */
+    .q-page {
+      background-size: cover;
+      background-position: center;
+    }
+    #page2 { background-image: url('data:image/jpeg;base64,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'); }
+    #page3 { background-image: url('data:image/jpeg;base64,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'); }
+    #page4 { background-image: url('data:image/jpeg;base64,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'); }
+
+    .q-page::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(255,180,200,0.8) 0%, rgba(255,240,245,0.85) 100%);
+    }
+
+    .q-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 420px;
+      width: 100%;
+    }
+
+    /* Sticker */
+    .sticker {
+      font-size: clamp(60px, 18vw, 100px);
+      display: block;
+      margin-bottom: 10px;
+      animation: bounce 2s infinite;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-12px) rotate(5deg); }
+    }
+
+    /* Message */
+    .q-message {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+      border: 2px solid rgba(255,150,180,0.3);
+      box-shadow: 0 8px 32px rgba(255,100,150,0.15);
+    }
+
+    .q-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #ff6b9d;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .q-text {
+      font-size: clamp(15px, 4.5vw, 20px);
+      font-weight: 700;
+      color: #5d1a2e;
+      line-height: 1.6;
+    }
+
+    .q-question {
+      font-size: clamp(16px, 5vw, 22px);
+      font-weight: 900;
+      color: #cc2255;
+      margin-top: 12px;
+    }
+
+    /* Buttons */
+    .btn-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .btn-yes, .btn-no {
+      padding: 14px 36px;
+      border: none;
+      border-radius: 50px;
+      font-size: 22px;
+      font-family: 'Tajawal', sans-serif;
+      font-weight: 900;
+      cursor: pointer;
+      transition: all 0.25s;
+      min-width: 110px;
+    }
+
+    .btn-yes {
+      background: linear-gradient(135deg, #2ecc71, #27ae60);
+      color: white;
+      box-shadow: 0 6px 24px rgba(46,204,113,0.4);
+    }
+    .btn-yes:hover, .btn-yes:active {
+      transform: scale(1.1);
+      box-shadow: 0 10px 30px rgba(46,204,113,0.6);
+    }
+
+    .btn-no {
+      background: linear-gradient(135deg, #ff4757, #c0392b);
+      color: white;
+      box-shadow: 0 6px 24px rgba(255,71,87,0.4);
+    }
+    .btn-no:hover, .btn-no:active {
+      transform: scale(1.1);
+      box-shadow: 0 10px 30px rgba(255,71,87,0.6);
+    }
+
+    /* ===== PAGE 5 - HEARTS ANIMATION ===== */
+    #page5 {
+      background: #312;
+    }
+    #page5 canvas {
+      position: absolute;
+      inset: 0;
+    }
+    .final-text {
+      position: relative;
+      z-index: 10;
+      color: white;
+      font-size: clamp(20px, 6vw, 36px);
+      font-weight: 900;
+      text-align: center;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+      padding: 20px;
+      line-height: 1.7;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Shake animation for no button on page3 */
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-5px); }
+      80% { transform: translateX(5px); }
+    }
+    .shake { animation: shake 0.5s ease; }
+
+    /* Different stickers per page */
+    .sticker-page2::after { content: '🐼😔'; }
+    .sticker-page3::after { content: '🐼🙏'; }
+    .sticker-page4::after { content: '🐼💕'; }
+  </style>
+</head>
+<body>
+
+<!-- PAGE 1: Welcome -->
+<div class="page active" id="page1">
+  <div class="page1-content">
+    <span class="big-heart">💕</span>
+    <h1 class="page1-title">حاب نقلك حاجه ياحبوبتي قلبي ....</h1>
+    <p class="page1-sub"> اعطيني دقيقه من وقتك يازين🥺</p>
+    <button class="enter-btn" onclick="goTo('page2')">اضغطي هنا✨</button>
+  </div>
+</div>
+
+<!-- PAGE 2: First question -->
+<div class="page q-page" id="page2">
+  <div class="q-content">
+    <span class="sticker">🐼😔</span>
+    <div class="q-message">
+      <div class="q-label">Mohamed 💌</div>
+      <p class="q-text">
+        
+        علابالي بلي قصرت شويا ياحبوبتي قلبي بصح مش قصدي كان خصني نسقسيك غدوا باش نشوف بيسك تعرفيني نخاف عليك وراح نسقسيك برك والله شفتك نعسانه ايا محبيتش نسقسي باش منصماطش عليك ياحبوبتي قلبي عينيا انا سمحيلي والله نحبك بزاف ونموت عليك ياحبوبتي قلبي عينيا انا
+      </p>
+      <p class="q-question">راح تسمحيلي يازين؟ 😭🥺🥺</p>
+    </div>
+    <div class="btn-row">
+      <button class="btn-yes" onclick="goTo('page5')">نعم 💚</button>
+      <button class="btn-no" onclick="goTo('page3')">لا ❌</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 3: Second chance -->
+<div class="page q-page" id="page3">
+  <div class="q-content">
+    <span class="sticker">🐼🙏</span>
+    <div class="q-message">
+      <div class="q-label">أنا 🥺</div>
+      <p class="q-text">
+       ياعمري لي مزالت زعفانه مني داك زين والله حبوبتي نحبك بزاف ونعشقك ومهوس فيك كثر من بزاف برك مرات نكون مشغول في حبك ولا نفكر في صوالح بيني وبينك شابين ايا ننسا مرات ولا ندير غلطات صغار بصح هادا ميعنيش منحبكش ياحبوتي وانا نموت عليك ونتي عارفه ياقلبي مرا كيفك متتعودش معنديش غيرك يازين
+      </p>
+      <p class="q-question">عطيني فرصه برك سمحيلي قلبي ميقدرش بلا ضحكتك 😭</p>
+    </div>
+    <div class="btn-row">
+      <button class="btn-yes" onclick="goTo('page5')">نعم 💚</button>
+      <button class="btn-no" id="btn-no-p3" onclick="goTo('page4')">لا ❌</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 4: Final (no "لا" button) -->
+<div class="page q-page" id="page4">
+  <div class="q-content">
+    <span class="sticker">🐼💕</span>
+    <div class="q-message">
+      <div class="q-label">أنا 🌸</div>
+      <p class="q-text">
+       ياعمريييي خلاص تسمحلي زين تاعي والله مرحش نتعب ونقعد نحاول ونحاول حتي تسمحيلي ياحبوبتي عندك حق تزعفي مني بصح انا منقدرش بلا بيك ندير كلش باش نرضيك ياعينيا حبوبتي انا نموت عليكي واجد نعطيك حياتي كامله والله😭
+      </p>
+      <p class="q-question">خليها فرصة واحدة بس؟ 🌹</p>
+    </div>
+    <div class="btn-row">
+      <button class="btn-yes" onclick="goTo('page5')">نعم 💚</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 5: Hearts animation (original code) -->
+<div class="page" id="page5">
+  <canvas id="testCanvas"></canvas>
+  <div class="final-text">
+   
+  </div>
+</div>
+
+<script src="https://code.createjs.com/1.0.0/easeljs.min.js"></script>
+<script>
+  // Page navigation
+  function goTo(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+    if (pageId === 'page5') initHearts();
+  }
+
+  // ===== HEARTS ANIMATION =====
+  var canvas, stage, container, captureContainers, captureIndex;
+  var heartsStarted = false;
+
+  function initHearts() {
+    if (heartsStarted) return;
+    heartsStarted = true;
+
+    canvas = document.getElementById("testCanvas");
+    stage = new createjs.Stage(canvas);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    var w = canvas.width;
+    var h = canvas.height;
+
+    container = new createjs.Container();
+    stage.addChild(container);
+
+    captureContainers = [];
+    captureIndex = 0;
+
+    for (var i = 0; i < 100; i++) {
+      var heart = new createjs.Shape();
+      heart.graphics.beginFill(createjs.Graphics.getHSL(Math.random() * 30 - 45, 100, 50 + Math.random() * 30));
+      heart.graphics.moveTo(0, -12).curveTo(1, -20, 8, -20).curveTo(16, -20, 16, -10).curveTo(16, 0, 0, 12);
+      heart.graphics.curveTo(-16, 0, -16, -10).curveTo(-16, -20, -8, -20).curveTo(-1, -20, 0, -12);
+      heart.y = -100;
+      container.addChild(heart);
+    }
+
+    var text = new createjs.Text("I love you so much my sweetie  I wish to see you happy every dayI love you my Ömrüm", "bold 24px Arial", "#ffd6e7");
+    text.textAlign = "center";
+    text.x = w / 2;
+    text.y = h / 2 - text.getMeasuredLineHeight();
+    stage.addChild(text);
+
+    for (i = 0; i < 100; i++) {
+      var captureContainer = new createjs.Container();
+      captureContainer.cache(0, 0, w, h);
+      captureContainers.push(captureContainer);
+    }
+
+    createjs.Ticker.timingMode = createjs.Ticker.RAF;
+    createjs.Ticker.on("tick", tick);
+  }
+
+  function tick(event) {
+    var w = canvas.width;
+    var h = canvas.height;
+    var l = container.numChildren;
+
+    captureIndex = (captureIndex + 1) % captureContainers.length;
+    stage.removeChildAt(0);
+    var captureContainer = captureContainers[captureIndex];
+    stage.addChildAt(captureContainer, 0);
+    captureContainer.addChild(container);
+
+    for (var i = 0; i < l; i++) {
+      var heart = container.getChildAt(i);
+      if (heart.y < -50) {
+        heart._x = Math.random() * w;
+        heart.y = h * (1 + Math.random()) + 50;
+        heart.perX = (1 + Math.random() * 2) * h;
+        heart.offX = Math.random() * h;
+        heart.ampX = heart.perX * 0.1 * (0.15 + Math.random());
+        heart.velY = -Math.random() * 2 - 1;
+        heart.scale = Math.random() * 2 + 1;
+        heart._rotation = Math.random() * 40 - 20;
+        heart.alpha = Math.random() * 0.75 + 0.05;
+        heart.compositeOperation = Math.random() < 0.33 ? "lighter" : "source-over";
+      }
+      var int2 = (heart.offX + heart.y) / heart.perX * Math.PI * 2;
+      heart.y += heart.velY * heart.scaleX / 2;
+      heart.x = heart._x + Math.cos(int2) * heart.ampX;
+      heart.rotation = heart._rotation + Math.sin(int2) * 30;
+    }
+
+    captureContainer.updateCache("source-over");
+    stage.update(event);
+  }
+</script>
+</body>
+</html>
